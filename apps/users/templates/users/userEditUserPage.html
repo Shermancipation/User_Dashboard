@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Profile</title>
+    {%load static%}
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Edit profile</h1>
+      <h2>Edit Information</h2>
+      <form action='{%url 'users:editProfile' %}' method='post'>
+        {% csrf_token %}
+        <br>Email Address:<input type='text' name='email' value='{{user.email}}'><br>
+        <br>First Name:<input type='text' name='firstname' value='{{user.firstname}}'><br>
+        <br>Last Name:<input type='text' name='lastname' value='{{user.lastname}}'><br>
+        <br><input type='submit' value='Edit'><br>
+      </form>
+      <h2>Change Password</h2>
+      <form action='{%url 'users:editUserPassword' %}' method='post'>
+        {% csrf_token %}
+        <br>Enter new password:<input type='password' name='password'><br>
+        <br>Confirm new password:<input type='password' name='confirm'><br>
+        <br><input type='submit' value='Change Password'><br>
+      </form>
+      <br>
+      <form action='{%url 'users:editDescription' %}' method='post'>
+        {% csrf_token %}
+        Edit Description:<textarea rows="4" cols="50" name='description'></textarea>
+        <input type='submit' value='Save'>
+      </form>
+      <br>
+      {% if request.session.loggedin == "Admin" %}
+        <a href='/dashboard/admin'>Home</a>
+      {% else %}
+        <a href='/dashboard'>Home</a>
+      {% endif %}
+    </div>
+  </body>
+</html>

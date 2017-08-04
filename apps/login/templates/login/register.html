@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Signin Page</title>
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="register">
+                <h1>Welcome to the user dashboard.</h1>
+                <h2>Register:</h2>
+                <form class="register" action='{%url 'login:createUser' %}' method="POST">
+                    {% csrf_token %}
+                    First Name: <br> <input type="text" name="first_name" value=""><br>
+                    Last Name: <br><input type="text" name="last_name" value=""><br>
+                    Email: <br><input type="text" name="email" value=""><br>
+                    Password: <br><input type="password" name="password" value=""><br>
+                    Confirm Password: <br> <input type="password" name="confirm" value=""><br>
+                    <input class='submit' type="submit" name="" value="Register">
+                </form><br>
+                <a href='/'>Already have an account?  Login</a>
+                {% if request.session.error_group %}
+                    {% if messages %}
+                        {% for i in messages %}
+                            <p style="color: red;">{{ i }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

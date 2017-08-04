@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    {%load static%}
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <h1>Manage Users</h1>
+      <button><a href='{%url 'users:newUserPage' %}'>Add new</a></button>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Created At</th>
+          <th>Admin</th>
+          <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+          <td>{{user.id}}</td>
+          <td><a href="{%url 'users:showUserPage' id=user.id %}">{{user.firstname}} {{user.lastname}}</a></td>
+          <td>{{user.email}}</td>
+          <td>{{user.created_at}}</td>
+          {% if user.admin == True %}
+            <td>Admin</td>
+          {% else %}
+            <td>User</td>
+          {% endif %}
+          <td><a href="{%url 'users:editUserPage' id=user.id %}">Edit</a> | <a href="{%url 'login:removeUser' id=user.id %}">Remove</a></td>
+        </tr>
+        {% endfor %}
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+      </table>
+      <a href='{%url 'login:logout' %}'>Logout</a>
+    </div>
+  </body>
+</html>

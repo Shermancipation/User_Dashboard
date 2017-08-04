@@ -1,0 +1,36 @@
+* {
+  font-family: 'Crimson Text', serif;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.submit {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+table, th, td {
+  border-bottom: 1px solid gray;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+a:visited {
+  color: red;
+  text-decoration: none;
+}

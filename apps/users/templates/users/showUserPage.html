@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {%load static%}
+    <title>{{user.firstname}} {{user.lastname}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+  </head>
+  <body>
+    <div id="msgWrapper">
+      <div id="userInfo">
+        <a href='/dashboard'>Home</a>
+        <h1>{{user.firstname}} {{user.lastname}}</h1>
+        <h3>Registered on:  {{user.created_at}}</h3>
+        <h3>User ID:  {{user.id}}<h3>
+        <h3>Description:  {{user.description}}<h3>
+      </div>
+      <form action='{%url 'users:postMessage' %}' method="POST">
+          {% csrf_token %}
+          Leave a message for {{user.firstname}}:
+          <br>
+          <textarea rows="4" cols="50" name='content'></textarea>
+          <input type="submit" value="Post">
+      </form><br>
+      {%if messages%}
+        {% for message in messages %}
+            <p>{{message.content}} - {{message.author}}, posted on {{message.created_at}}</p>
+          {% for comment in message.all_message_comments.all %}
+              <p id="commentP">{{comment.content}} - {{comment.author}}, posted on {{comment.created_at}}</p>
+          {% endfor %}
+        <form id="commentForm" action='{%url 'users:postComment' messageId=message.id %}' method="POST">
+            {% csrf_token %}
+            Comment:
+            <br>
+            <textarea rows="4" cols="50" name='content'></textarea>
+            <input type="submit" value="Comment">
+        </form><br>
+        {% endfor %}
+      {% endif %}
+      {% if request.session.loggedin == "Admin" %}
+      {% else %}
+      {% endif %}
+    </div>
+  </body>
+</html>

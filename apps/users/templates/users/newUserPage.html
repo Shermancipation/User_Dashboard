@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New User</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Register</h2>
+      <form class="register" action='{%url 'users:createNewUser' %}' method="POST">
+          {% csrf_token %}
+          Email: <br><input type="text" name="email" value=""><br>
+          First Name: <br> <input type="text" name="first_name" value=""><br>
+          Last Name: <br><input type="text" name="last_name" value=""><br>
+          Password: <br><input type="password" name="password" value=""><br>
+          Confirm Password: <br> <input type="password" name="confirm" value=""><br>
+          <br>
+          <input type="submit" name="" value="Create">
+      </form><br>
+      {% if request.session.error_group %}
+          {% if messages %}
+              {% for i in messages %}
+                  <p style="color: red;">{{ i }}</p>
+              {% endfor %}
+          {% endif %}
+      {% endif %}
+      <a href='/dashboard'>Home</a>
+    </div>
+  </body>
+</html>

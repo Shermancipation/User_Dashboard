@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Signin Page</title>
+        {%load static%}
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="login">
+                <h1>Welcome to the user dashboard.</h1>
+                <h2>Sign In:</h2>
+                <form class="login" action='{%url 'login:login' %}' method="post">
+                    {% csrf_token %}
+                    Email: <br><input type="text" name="email"><br>
+                    Password: <br><input type="password" name="password"><br>
+                    <input class='submit' type="submit" name="submit" value="Sign In">
+                </form>
+                <br>
+                <a href='register'>Don't have an account?  Register.</a>
+                {% if not request.session.error_group %}
+                    {% if messages %}
+                        {% for i in messages %}
+                            <p style="color: red;">{{ i }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

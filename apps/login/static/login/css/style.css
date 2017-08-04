@@ -1,0 +1,70 @@
+* {
+  font-family: 'Crimson Text', serif;
+}
+
+.wrapper {
+  display: block;
+  width: 45%;
+  text-align: center;
+  background: white;
+  box-shadow: 10px 10px 20px grey;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid black;
+  padding: 20px 20px 45px 20px;
+  opacity: .85;
+}
+
+#msgWrapper{
+  display: block;
+  width: 75%;
+  text-align: left;
+  background: white;
+  box-shadow: 10px 10px 20px grey;
+  margin: auto;
+  padding-left: 20px;
+  border: 1px solid black;
+  opacity: .85;
+}
+
+#commentP, #commentForm{
+  margin-left: 50px;
+}
+
+body {
+  height: 600px;
+  display: block;
+  background-image: url("http://vunature.com/wp-content/uploads/2017/01/trees-winter-silhouette-cold-branches-dusk-sky-snow-real-nature-wallpaper-free-download-1366x768.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.submit {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+table, th, td {
+  border-bottom: 1px solid gray;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+a:visited {
+  color: red;
+  text-decoration: none;
+}
