@@ -39,7 +39,7 @@ def create_user(request):
             request.session['error_group'] = True
             for i in response_from_models["error"]:
                 messages.error(request, i)
-            return redirect('/')
+            return redirect('login:register')
     else:
         return redirect('/')
     if request.session['loggedin'] == "Admin":

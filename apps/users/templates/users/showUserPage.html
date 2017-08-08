@@ -10,7 +10,11 @@
   <body>
     <div id="msgWrapper">
       <div id="userInfo">
-        <a href='/dashboard'>Home</a>
+        {% if request.session.loggedin == "Admin" %}
+          <a href='/dashboard/admin'>Home</a>
+        {% else %}
+          <a href='/dashboard'>Home</a>
+        {% endif %}
         <h1>{{user.firstname}} {{user.lastname}}</h1>
         <h3>Registered on:  {{user.created_at}}</h3>
         <h3>User ID:  {{user.id}}<h3>

@@ -17,9 +17,9 @@ def createNewUser(request):
             request.session['error_group'] = True
             for error in response_from_models["error"]:
                 messages.error(request, error)
-            return redirect('users:newUserPage')
+            return redirect('login:admin')
     else:
-        return redirect('users:newUserPage')
+        return redirect('login:admin')
 
 def edit_user(request):
     if request.method=="POST":

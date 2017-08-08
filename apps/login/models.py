@@ -55,9 +55,9 @@ class UserManager(models.Manager):
         if len(postData['password']) < 4:
             errors.append("Password must be at least 4 charaters.")
         if len(postData['confirm']) < 1:
-            errors.append("Please confirm your password")
+            errors.append("Please confirm your password.")
         if not postData["password"] == postData["confirm"]:
-            errors.append("Your passwords do not match")
+            errors.append("Your passwords do not match.")
 
         response_to_views = {}
         if errors:
@@ -150,11 +150,11 @@ class UserManager(models.Manager):
             pass
 
         if len(postData['password']) < 4:
-            errors.append("Password must be at least 4 charaters.")
+            errors.append("Password must be at least 4 characters.")
         if len(postData['confirm']) < 1:
-            errors.append("Please confirm your password")
+            errors.append("Please confirm your password.")
         if not postData["password"] == postData["confirm"]:
-            errors.append("Your passwords do not match")
+            errors.append("Your passwords do not match.")
 
 
         response_to_views = {}

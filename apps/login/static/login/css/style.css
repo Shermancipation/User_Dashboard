@@ -9,22 +9,25 @@
   background: white;
   box-shadow: 10px 10px 20px grey;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 75px;
+  margin-bottom: 75px;
   border: 1px solid black;
   padding: 20px 20px 45px 20px;
-  opacity: .85;
+  opacity: .9;
 }
 
 #msgWrapper{
   display: block;
-  width: 75%;
+  width: 55%;
   text-align: left;
   background: white;
   box-shadow: 10px 10px 20px grey;
   margin: auto;
+  margin-top: 75px;
+  margin-bottom: 75px;
   padding-left: 20px;
   border: 1px solid black;
-  opacity: .85;
+  opacity: .9;
 }
 
 #commentP, #commentForm{
@@ -34,7 +37,7 @@
 body {
   height: 600px;
   display: block;
-  background-image: url("http://vunature.com/wp-content/uploads/2017/01/trees-winter-silhouette-cold-branches-dusk-sky-snow-real-nature-wallpaper-free-download-1366x768.jpg");
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/c3/02/22/c302222bb37c17780f123c943e63b692.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -60,11 +63,13 @@ table {
 }
 
 a:link {
-    color: red;
-    text-decoration: none;
+  color: #0A0366;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 a:visited {
-  color: red;
+  color: #0A0366;
+  font-weight: bold;
   text-decoration: none;
 }

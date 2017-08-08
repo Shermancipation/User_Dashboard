@@ -30,6 +30,12 @@
         <br><input type='submit' value='Change Password'><br>
       </form>
       <br>
+      <form action='{%url 'users:editDescription' %}' method='post'>
+        {% csrf_token %}
+        Edit Description:<textarea rows="4" cols="50" name='description'></textarea>
+        <input type='submit' value='Save'>
+      </form>
+      <br>
       {% if request.session.loggedin == "Admin" %}
         <a href='/dashboard/admin'>Home</a>
       {% else %}
