@@ -37,7 +37,7 @@
 body {
   height: 600px;
   display: block;
-  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/c3/02/22/c302222bb37c17780f123c943e63b692.jpg");
+  background-image: url("../img/background.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
