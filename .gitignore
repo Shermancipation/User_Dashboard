@@ -1,4 +1,2 @@
 *.pyc
 venv/
-db.sqlite3
-test_app/settings.py
